@@ -7,11 +7,11 @@ require "active_model_form_objects/version"
 Gem::Specification.new do |s|
   s.name        = "active_model_form_objects"
   s.version     = ActiveModelFormObjects::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["Matt Freer"]
+  s.email       = ["matt.freer@gmail.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ActiveModelFormObjects."
-  s.description = "TODO: Description of ActiveModelFormObjects."
+  s.summary     = "Active Model Form Objects"
+  s.description = "Active Model Form Objects"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
@@ -19,4 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "generator_spec"
+  s.add_development_dependency "cucumber-rails"
+  s.add_development_dependency "poltergeist"
 end

@@ -1,0 +1,9 @@
+Description:
+    Generates a form-object for the given resource operation with tests.
+
+    Example:
+      `rails generate active_model:form_object user update`
+
+      For TestUnit it creates:
+      Serializer:  app/serializers/account_serializer.rb
+      TestUnit:    test/unit/account_serializer_test.rb

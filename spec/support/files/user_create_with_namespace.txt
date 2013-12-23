@@ -1,0 +1,5 @@
+require 'active_model'
+
+class Xyz::UserCreate
+  include ActiveModel::FormObject
+end

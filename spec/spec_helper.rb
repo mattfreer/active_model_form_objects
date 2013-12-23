@@ -40,3 +40,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def load_from_file(name)
+  File.read(File.expand_path("spec/support/files/#{name}")).chomp
+end

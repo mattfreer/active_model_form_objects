@@ -1,28 +1,24 @@
+require 'active_model/form_object/generators/test_generator'
+
 module Rspec
   module Generators
-    class FormObjectGenerator < Rails::Generators::NamedBase
+    class FormObjectGenerator < ActiveModel::Generators::TestGenerator
       desc "Generate a FormObject spec in spec/form_objects/"
-
-      argument :name,
-        :type => :string,
-        :banner => "resource"
-
-      argument :operation,
-        :type => :string,
-        :default => "create",
-        :banner => "operation"
 
       source_root File.expand_path('../templates', __FILE__)
 
-      def copy_files
-        template 'form_object_spec.rb',
-          File.join('spec/form_objects', class_path, "#{file_name}_#{operation}_spec.rb")
+      private
+
+      def template_name
+        'form_object_spec.rb'
       end
 
-      protected
+      def test_dir_path
+        'spec/form_objects'
+      end
 
-      def klass_name
-        "#{class_name}#{operation.capitalize}"
+      def test_suffix
+        'spec'
       end
     end
   end

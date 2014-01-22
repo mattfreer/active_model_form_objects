@@ -1,5 +1,6 @@
 require 'rails/generators'
 require_relative 'rspec/form_object_generator'
+require_relative 'test_generator'
 require_relative 'test_unit/form_object_generator'
 
 module ActiveModel
@@ -22,6 +23,11 @@ module ActiveModel
         :desc => 'The parent class for the generated form_object'
 
       hook_for :test_framework
+
+      class_option :spec,
+        :type => :boolean,
+        :default => false,
+        :desc => "If using MiniTest, use MiniTest::Spec DSL"
 
       def create_form_object
         template 'form_object.rb', File.join('app/form_objects', class_path, "#{file_name}_#{operation}.rb")

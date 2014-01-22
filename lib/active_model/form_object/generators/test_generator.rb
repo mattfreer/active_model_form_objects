@@ -3,6 +3,8 @@ require 'rails'
 module ActiveModel
   module Generators
     class TestGenerator < Rails::Generators::NamedBase
+      # hides this generator from the available ones when running rails generator command
+      hide!
 
       argument :name,
         :type => :string,
@@ -13,11 +15,10 @@ module ActiveModel
         :default => "create",
         :banner => "operation"
 
-      source_root File.expand_path('../templates', __FILE__)
 
       def copy_files
-        template 'form_object_spec.rb',
-          File.join('spec/form_objects', class_path, "#{file_name}_#{operation}_spec.rb")
+        template template_name,
+          File.join(test_dir_path, class_path, "#{file_name}_#{operation}_#{test_suffix}.rb")
       end
 
       protected

@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe <%= "#{klass_name}" %> do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { described_class.new(attrs) }
+  let(:attrs) {}
+
+  it_behaves_like "a form_object"
 end

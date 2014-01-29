@@ -7,6 +7,11 @@ module Rspec
 
       source_root File.expand_path('../templates', __FILE__)
 
+      def copy_shared_example
+        template "shared_example.rb",
+          File.join(support_dir_path, "form_object.rb")
+      end
+
       private
 
       def template_name
@@ -15,6 +20,10 @@ module Rspec
 
       def test_dir_path
         'spec/form_objects'
+      end
+
+      def support_dir_path
+        'spec/support/shared_examples'
       end
 
       def test_suffix

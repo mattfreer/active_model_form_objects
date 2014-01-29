@@ -6,7 +6,6 @@ require_relative 'test_unit/form_object_generator'
 module ActiveModel
   module Generators
     class FormObjectGenerator < Rails::Generators::NamedBase
-      desc "Generate a FormObject in app/form_objects/"
       source_root File.expand_path('../templates', __FILE__)
 
       argument :name,

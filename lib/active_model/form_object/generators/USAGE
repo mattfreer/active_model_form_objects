@@ -4,6 +4,14 @@ Description:
     Example:
       `rails generate active_model:form_object user update`
 
+      For RSpec it creates:
+      Form-object:  app/form_objects/user_update.rb
+      Test:         spec/form_objects/user_update_spec.rb
+
+      For MiniTest it creates:
+      Form-object:  app/form_objects/user_update.rb
+      Test:         test/form_objects/user_update_test.rb
+
       For TestUnit it creates:
-      Serializer:  app/serializers/account_serializer.rb
-      TestUnit:    test/unit/account_serializer_test.rb
+      Form-object:  app/form_objects/user_update.rb
+      Test:         test/unit/form_objects/user_update_test.rb

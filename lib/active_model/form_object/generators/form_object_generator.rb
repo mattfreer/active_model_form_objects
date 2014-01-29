@@ -32,6 +32,10 @@ module ActiveModel
         template 'form_object.rb', File.join('app/form_objects', class_path, "#{file_name}_#{operation}.rb")
       end
 
+      def show_readme
+        readme "README"
+      end
+
       protected
 
       def klass_name

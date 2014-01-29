@@ -1,11 +1,11 @@
-require "minitest/autorun"
+require 'test_helper'
 
-class <%= "#{klass_name}" %> < Minitest::Test
+class <%= "Test#{klass_name}" %> < MiniTest::Unit::TestCase
   def setup
-    @subject = klass_name.new
+    @subject = <%= "#{ klass_name }" %>.new
   end
 
-  #def test_the_truth
-    #assert_equal "bar", @subject.foo
-  #end
+  def test_for_save
+    assert_respond_to @subject, :save
+  end
 end

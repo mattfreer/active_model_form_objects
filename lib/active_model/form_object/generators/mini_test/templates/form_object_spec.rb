@@ -1,13 +1,13 @@
-require "minitest/autorun"
+require "test_helper"
 
 describe <%= "#{klass_name}" %> do
   before do
-    @subject = klass_name.new
+    @subject = <%= "#{ klass_name }" %>.new
   end
 
   describe "#foo" do
-    #it "tests the truth" do
-      @subject.foo.must_equal "bar"
-    #end
+    it "responds to #save" do
+      @subject.must_respond_to :save
+    end
   end
 end

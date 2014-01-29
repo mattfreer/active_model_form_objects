@@ -2,6 +2,7 @@ require 'rails/generators'
 require_relative 'rspec/form_object_generator'
 require_relative 'test_generator'
 require_relative 'test_unit/form_object_generator'
+require_relative 'mini_test/form_object_generator'
 
 module ActiveModel
   module Generators

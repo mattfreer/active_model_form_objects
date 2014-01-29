@@ -3,7 +3,7 @@ require 'active_model/form_object/generators/test_generator'
 module TestUnit
   module Generators
     class FormObjectGenerator < ActiveModel::Generators::TestGenerator
-      desc "Generate a FormObject test in test/form_objects/"
+      hide!
 
       source_root File.expand_path('../templates', __FILE__)
 
@@ -14,7 +14,7 @@ module TestUnit
       end
 
       def test_dir_path
-        'test/form_objects'
+        'test/unit/form_objects'
       end
 
       def test_suffix

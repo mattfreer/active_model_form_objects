@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ActiveModelFormObjects::VERSION
   s.authors     = ["Matt Freer"]
   s.email       = ["matt.freer@gmail.com"]
-  s.homepage    = "https://github.com/mattfreer"
+  s.homepage    = "https://github.com/mattfreer/active_model_form_objects"
   s.summary     = "Active Model Form Objects"
   s.description = "Provides an ActiveModel::FormObject module that can be included into a PORO. A Rails Generator for Form Objects is included in the Gem."
 

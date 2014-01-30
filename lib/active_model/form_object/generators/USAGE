@@ -2,16 +2,16 @@ Description:
     Generates a form-object for the given resource operation with tests.
 
     Example:
-      `rails generate active_model:form_object user update`
+      `rails generate active_model:form_object user login`
 
       For RSpec it creates:
-      Form-object:  app/form_objects/user_update.rb
-      Test:         spec/form_objects/user_update_spec.rb
+      Form-object:  app/form_objects/user_login.rb
+      Test:         spec/form_objects/user_login_spec.rb
 
       For MiniTest it creates:
-      Form-object:  app/form_objects/user_update.rb
-      Test:         test/form_objects/user_update_test.rb
+      Form-object:  app/form_objects/user_login.rb
+      Test:         test/form_objects/user_login_test.rb
 
       For TestUnit it creates:
-      Form-object:  app/form_objects/user_update.rb
-      Test:         test/unit/form_objects/user_update_test.rb
+      Form-object:  app/form_objects/user_login.rb
+      Test:         test/unit/form_objects/user_login_test.rb

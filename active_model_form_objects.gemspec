@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = ActiveModelFormObjects::VERSION
   s.authors     = ["Matt Freer"]
   s.email       = ["matt.freer@gmail.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/mattfreer"
   s.summary     = "Active Model Form Objects"
-  s.description = "Active Model Form Objects"
+  s.description = "Provides an ActiveModel::FormObject module that can be included into a PORO. A Rails Generator for Form Objects is included in the Gem."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 

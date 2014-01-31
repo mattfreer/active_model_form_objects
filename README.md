@@ -1,5 +1,7 @@
 # ActiveModel::FormObjects
 
+[![Build Status](https://travis-ci.org/mattfreer/active_model_form_objects.png)](https://travis-ci.org/mattfreer/active_model_form_objects)
+
 This Gem provides an `ActiveModel::FormObject` module that can be included into a PORO. Includes a Rails Generator for Form Objects.
 
 Form Objects are used to encapsulate operations which are triggered by a form submission. They are particularly useful when multiple Models need to be updated by a single form submission. A common example would be a signup form that results in the creation of both a Company and a User.

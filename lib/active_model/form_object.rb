@@ -19,6 +19,10 @@ module ActiveModel
         allocate_and_init(*args, &block)
       end
 
+      def model_name
+        ActiveModel::Name.new(self, nil, self.name.split(/(?=[A-Z])/).first)
+      end
+
       private
 
       def create_accessors(*args)

@@ -8,10 +8,6 @@ class UserSignup
 
   validates :name, :length => { :minimum => 2 }
 
-  def self.model_name
-    ActiveModel::Name.new(self, nil, "User")
-  end
-
   def persist!
     @user = User.create!(:name => name)
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CreateUserForm do
+describe UserSignup do
   subject { described_class.new(attrs) }
   let(:attrs) {}
 

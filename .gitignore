@@ -21,3 +21,4 @@ spec/dummy/config/database.yml
 spec/dummy/.sass-cache
 spec/dummy/coverage
 spec/lib/tmp
+coverage

@@ -7,6 +7,7 @@ require "active_model/form_object/version"
 Gem::Specification.new do |s|
   s.name        = "active_model_form_objects"
   s.version     = ActiveModelFormObjects::VERSION
+  s.license     = 'MIT'
   s.authors     = ["Matt Freer"]
   s.email       = ["matt.freer@gmail.com"]
   s.homepage    = "https://github.com/mattfreer/active_model_form_objects"

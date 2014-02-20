@@ -8,6 +8,8 @@ class UserSignup
 
   validates :name, :length => { :minimum => 2 }
 
+  private
+
   def persist!
     @user = User.create!(:name => name)
   end

@@ -18,7 +18,7 @@ And then execute:
 $ bundle
 ````
 
-## Creaing a FormObject with the Generator
+## Creating a FormObject with the Generator
 The following example generates a `UserLogin` form-object (and test).
 ```bash
 $ rails generate active_model:form_object user login

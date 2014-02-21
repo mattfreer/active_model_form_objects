@@ -2,4 +2,10 @@ require 'active_model'
 
 class UserCreate < Foo::Bar
   include ActiveModel::FormObject
+
+  private
+
+  def persist!
+    #TODO
+  end
 end

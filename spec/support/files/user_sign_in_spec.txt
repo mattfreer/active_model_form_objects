@@ -1,0 +1,8 @@
+require 'spec_helper'
+
+describe UserSignIn do
+  subject { described_class.new(attrs) }
+  let(:attrs) {}
+
+  it_behaves_like "a form_object"
+end

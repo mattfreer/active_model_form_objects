@@ -40,7 +40,7 @@ module ActiveModel
       protected
 
       def klass_name
-        "#{class_name}#{operation.capitalize}"
+        "#{class_name}#{operation.camelize}"
       end
 
       def has_parent_class?

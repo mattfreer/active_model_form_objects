@@ -49,6 +49,35 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     end
   end
 
+  context "with 'sign_in' operation option" do
+    let(:operation) { 'sign_in' }
+    let(:form_object_file) { "app/form_objects/user_sign_in.rb" }
+
+    specify "should have directory structure" do
+      destination_root.should have_structure {
+        directory "app" do
+          directory "form_objects" do
+            file "user_sign_in.rb" do
+              contains load_from_file("user_sign_in.txt")
+            end
+          end
+        end
+      }
+    end
+
+    specify "spec directory structure" do
+      destination_root.should have_structure {
+        directory "spec" do
+          directory "form_objects" do
+            file "user_sign_in_spec.rb" do
+              contains load_from_file("user_sign_in_spec.txt")
+            end
+          end
+        end
+      }
+    end
+  end
+
   context "with default operation option" do
     let(:form_object_file) { "app/form_objects/user_create.rb" }
     let(:spec_file) { "spec/form_objects/user_create_spec.rb" }

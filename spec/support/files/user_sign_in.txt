@@ -1,0 +1,11 @@
+require 'active_model'
+
+class UserSignIn
+  include ActiveModel::FormObject
+
+  private
+
+  def persist!
+    #TODO
+  end
+end

@@ -15,7 +15,6 @@ module ActiveModel
         :default => "create",
         :banner => "operation"
 
-
       def copy_files
         template template_name,
           File.join(test_dir_path, class_path, "#{file_name}_#{operation}_#{test_suffix}.rb")
@@ -24,7 +23,7 @@ module ActiveModel
       protected
 
       def klass_name
-        "#{class_name}#{operation.capitalize}"
+        "#{class_name}#{operation.camelize}"
       end
     end
   end

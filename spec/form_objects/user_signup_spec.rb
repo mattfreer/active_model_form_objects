@@ -8,6 +8,11 @@ describe UserSignup do
 
   context "with attributes" do
     let(:attrs) { {:foo => :bar} }
-    its(:foo) { should be :bar }
+
+    describe "#foo" do
+      it "should be bar" do
+        expect(subject.foo).to be :bar
+      end
+    end
   end
 end

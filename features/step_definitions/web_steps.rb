@@ -11,5 +11,5 @@ When /^I click button "([^"]*)"$/ do |value|
 end
 
 Then /^the page has content "([^"]*)"$/ do |text|
-  page.should have_content(text)
+  expect(page).to have_content(text)
 end

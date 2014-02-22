@@ -25,7 +25,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     let(:form_object_file) { "app/form_objects/user_update.rb" }
 
     specify "should have directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "app" do
           directory "form_objects" do
             file "user_update.rb" do
@@ -37,7 +37,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     end
 
     specify "spec directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "spec" do
           directory "form_objects" do
             file "user_update_spec.rb" do
@@ -54,7 +54,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     let(:form_object_file) { "app/form_objects/user_sign_in.rb" }
 
     specify "should have directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "app" do
           directory "form_objects" do
             file "user_sign_in.rb" do
@@ -66,7 +66,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     end
 
     specify "spec directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "spec" do
           directory "form_objects" do
             file "user_sign_in_spec.rb" do
@@ -95,7 +95,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     let(:options) { '--parent=Foo::Bar' }
 
     specify "should have directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "app" do
           directory "form_objects" do
             file "user_create.rb" do
@@ -111,7 +111,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     let(:name) { "xyz::user" }
 
     specify "should have directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "app" do
           directory "form_objects" do
             directory "xyz" do
@@ -125,7 +125,7 @@ describe ActiveModel::Generators::FormObjectGenerator, type: :generator do
     end
 
     specify "spec directory structure" do
-      destination_root.should have_structure {
+      expect(destination_root).to have_structure {
         directory "spec" do
           directory "form_objects" do
             directory "xyz" do

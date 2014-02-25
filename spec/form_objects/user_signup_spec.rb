@@ -6,6 +6,13 @@ describe UserSignup do
 
   it_behaves_like "a form_object"
 
+  describe "#valid?" do
+    it "triggers #create_user callback" do
+      expect(subject).to receive(:create_user)
+      subject.valid?()
+    end
+  end
+
   context "with attributes" do
     let(:attrs) { {:foo => :bar} }
 

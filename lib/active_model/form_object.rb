@@ -8,6 +8,7 @@ module ActiveModel
         extend Naming
         include Conversion
         include Validations
+        include Validations::Callbacks
         include Validators
         extend ClassMethods
         include InstanceMethods

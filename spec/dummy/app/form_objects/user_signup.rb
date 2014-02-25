@@ -2,7 +2,6 @@ require 'active_model'
 
 class UserSignup
   include ActiveModel::FormObject
-  include ActiveRecord::Callbacks
 
   attr_accessor :name
   attr_reader :user

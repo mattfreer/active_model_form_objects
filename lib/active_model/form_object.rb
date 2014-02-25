@@ -1,12 +1,14 @@
 module ActiveModel
   module FormObject
     require_relative "form_object/railtie" if defined?(Rails)
+    require_relative 'form_object/validators/nested_validator'
 
     def self.included klass
       klass.class_eval do
         extend Naming
         include Conversion
         include Validations
+        include Validators
         extend ClassMethods
         include InstanceMethods
       end

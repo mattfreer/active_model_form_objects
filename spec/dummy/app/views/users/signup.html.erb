@@ -1,5 +1,13 @@
 <h1>Users#signup</h1>
 
+<% if @signup_form.errors.any? %>
+  <ul>
+    <% @signup_form.errors.full_messages.each do |e| %>
+      <%= content_tag :li, e %>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @signup_form do |f| %>
   <%= f.text_field :name %>
   <%= f.submit "Submit" %>

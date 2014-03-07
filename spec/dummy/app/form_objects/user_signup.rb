@@ -11,10 +11,13 @@ class UserSignup
 
   before_validation :create_user
 
+  strong_parameters :user => [:name]
+
   private
 
   def create_user
-    @user = User.new(:name => name)
+    @user = User.new(user_params)
+    @name = user_params[:name]
   end
 
   def persist!

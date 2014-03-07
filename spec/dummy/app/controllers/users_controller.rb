@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @signup_form = UserSignup.new(params[:user])
-    if @signup_form.save()
+    @signup_form = UserSignup.new(:params => params)
+    if @signup_form.save
       @user = @signup_form.user
       respond_with @user
     else

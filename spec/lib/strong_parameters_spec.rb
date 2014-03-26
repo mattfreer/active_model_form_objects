@@ -22,66 +22,43 @@ describe "ActiveModel::FormObject::StrongParameters" do
   end
 
   describe ActiveModel::FormObject::StrongParameters::StrongParameters do
+    let(:user_params) { ActionController::Parameters.new(:user => {:name => "Matt Freer", :email => "matt.freer@gmail.com"}) }
+
+    class MockFormObject
+      attr_accessor :params, :unpermitted_attrs
+
+      def initialize(attr)
+        @params = attr
+      end
+    end
+
+    subject { described_class.new(MockFormObject) }
 
     describe "#initialize" do
-
-      it "sets its klass to a class" do
-        klass = StrongParametersTester
-        expect(described_class.new(klass).klass).to eql(klass)
+      it "sets its klass to the Form Object" do
+        expect(subject.klass).to eql(MockFormObject)
       end
-
     end
+
+    let(:form_obj) { MockFormObject.new(user_params) }
 
     describe "#set" do
-
-      class StrongParametersClassTester
-
-        attr_accessor :required, :permitted
-
-        def [](key)
-          true
-        end
-
-        def my_params
-          return self
-        end
-
-        def require(args)
-          @required = args
-          return self
-        end
-
-        def permit(args)
-          @permitted = args
-          return self
-        end
+      it "defines a method on the Form Object" do
+        subject.set(:params, {:user => [:name, :email] })
+        expect(form_obj.respond_to?(:user_params)).to eql(true)
       end
+    end
 
+    context "when a #user_params method has been defined on the Form Object" do
       before(:each) do
-        strong_params = described_class.new(StrongParametersClassTester)
-        strong_params.set(:my_params, {:admin => [:email, :name] })
+        subject.set(:params, {:user => [:name, :email] })
       end
 
-      it "defines a method on the defined class" do
-        expect(StrongParametersClassTester.new.respond_to?(:admin_params)).to eql(true)
+      it "when sending the #user_params message to the Form Object then the form_object#params object will receive #require and #permit" do
+        expect(user_params).to receive(:require).with(:user).and_return(user_params)
+        expect(user_params).to receive(:permit).with([:name, :email]).and_return(user_params)
+        form_obj.user_params
       end
-
-      it "calls the method which calls #require and #permit on the parameter name" do
-        tester = StrongParametersClassTester.new
-        tester.admin_params
-        expect(tester.required).to eql(:admin)
-        expect(tester.permitted).to eql([:email, :name])
-      end
-
-      it "doesn't call the method when the parameter is missing" do
-        tester = StrongParametersClassTester.new
-        allow(tester).to receive(:[]).and_return(nil)
-        tester.admin_params
-        expect(tester.required).to eql(nil)
-        expect(tester.permitted).to eql(nil)
-      end
-
     end
   end
-
 end

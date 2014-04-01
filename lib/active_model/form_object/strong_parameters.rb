@@ -4,6 +4,7 @@ module ActiveModel
 
       def self.included(klass)
         klass.extend(ClassMethods)
+        attr_accessor :unpermitted_attrs
       end
 
       module ClassMethods
@@ -28,15 +29,18 @@ module ActiveModel
           opts.each do |key, value|
             klass.send(:define_method, "#{key}_params".to_sym) do
               params = self.send(parameter_name)
+
               unless params[key].nil?
-                self.send(parameter_name).require(key).permit(value)
+                self.unpermitted_attrs ||= {}
+                unpermitted = params[key].keys.map(&:to_s) - value.map(&:to_s)
+                self.unpermitted_attrs[key] = unpermitted if unpermitted.any?
               end
+
+              params.require(key).permit(value)
             end
           end
-
         end
       end
-
     end
   end
 end

@@ -7,11 +7,14 @@ class UserSignup
   attr_reader :user
 
   validates :name, :length => { :minimum => 5 }
-  validates :user, :nested => true
 
-  before_validation :create_user
+  validates :user,
+    :nested => true,
+    :permitted_params => true
 
   strong_parameters :user => [:name]
+
+  before_validation :create_user
 
   private
 

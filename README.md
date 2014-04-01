@@ -159,6 +159,21 @@ In your controller you can now do:
 
 ```
 
+## Permitted Params Validator
+
+The `strong_parameters` class method will record any unpermitted parameters that are included in the params object. These are stored in a `unpermitted_attrs` hash attribute on the FormObject. If you wish to invalidate a FormObject based on the existence of `unpermitted_attrs` then you can use the `FormObject::Validators::PermittedParamsValidator` as demonstrated in the following example:
+
+```ruby
+
+  class UserRegister
+    include ActiveModel::FormObject
+
+    validates :user, :permitted_params => true
+
+    strong_paramters :user => [:name, :email]
+  end
+
+```
 
 ## Contributing
 

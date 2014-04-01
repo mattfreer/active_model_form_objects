@@ -40,12 +40,12 @@ describe "ActiveModel::FormObject::StrongParameters" do
       end
     end
 
-    let(:form_obj) { MockFormObject.new(user_params) }
+    let(:form_object) { MockFormObject.new(user_params) }
 
     describe "#set" do
       it "defines a method on the Form Object" do
         subject.set(:params, {:user => [:name, :email] })
-        expect(form_obj.respond_to?(:user_params)).to eql(true)
+        expect(form_object.respond_to?(:user_params)).to eql(true)
       end
     end
 
@@ -54,10 +54,31 @@ describe "ActiveModel::FormObject::StrongParameters" do
         subject.set(:params, {:user => [:name, :email] })
       end
 
-      it "when sending the #user_params message to the Form Object then the form_object#params object will receive #require and #permit" do
-        expect(user_params).to receive(:require).with(:user).and_return(user_params)
-        expect(user_params).to receive(:permit).with([:name, :email]).and_return(user_params)
-        form_obj.user_params
+      context "sending the #user_params message to the Form Object" do
+        it "the form_object#params object will receive #require and #permit" do
+          expect(user_params).to receive(:require).with(:user).and_return(user_params)
+          expect(user_params).to receive(:permit).with([:name, :email]).and_return(user_params)
+          form_object.user_params
+        end
+
+        context "when the form_object#params object contains unpermitted attributes" do
+          before(:each) do
+            user_params[:user].merge!(:foo => :bar, :x => :y)
+          end
+
+          it "will add the attributes to form_object#unpermitted_attrs" do
+            form_object.user_params
+            expect(form_object.unpermitted_attrs[:user]).to include("foo", "x")
+          end
+        end
+
+        context "when the form_object#params object doesn't contain a required key" do
+          let(:user_params) { ActionController::Parameters.new(:foo => :bar) }
+
+          it "raises an ActionController::ParameterMissing error" do
+            expect{ form_object.user_params }.to raise_error(ActionController::ParameterMissing)
+          end
+        end
       end
     end
   end

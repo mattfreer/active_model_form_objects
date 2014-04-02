@@ -1,4 +1,5 @@
 require 'active_model'
+require 'user'
 
 class UserSignup
   include ActiveModel::FormObject

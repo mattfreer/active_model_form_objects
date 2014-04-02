@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'user'
 
 describe UserSignup do
   subject { described_class.new(attrs) }

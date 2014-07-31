@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 4.0.2"
 
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails", "~> 3.0.0.beta2"
+  s.add_development_dependency "rspec-rails", "~> 3.0.2"
+  s.add_development_dependency "rspec-activemodel-mocks", "~> 1.0.1"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "generator_spec"
   s.add_development_dependency "cucumber-rails"

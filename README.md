@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mattfreer/active_model_form_objects.png)](https://travis-ci.org/mattfreer/active_model_form_objects)
 [![Coverage Status](https://coveralls.io/repos/mattfreer/active_model_form_objects/badge.png?branch=master)](https://coveralls.io/r/mattfreer/active_model_form_objects?branch=master)
+[![Gem Version](https://badge.fury.io/rb/active_model_form_objects.svg)](http://badge.fury.io/rb/active_model_form_objects)
 
 This Gem provides an `ActiveModel::FormObject` module that can be included into a PORO. Includes a Rails Generator for Form Objects.
 

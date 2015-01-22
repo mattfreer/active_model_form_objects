@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  respond_to :html
-
   def signup
     @signup_form = UserSignup.new
   end
@@ -9,7 +7,7 @@ class UsersController < ApplicationController
     @signup_form = UserSignup.new(:params => params)
     if @signup_form.save
       @user = @signup_form.user
-      respond_with @user
+      render "create"
     else
       render "signup"
     end

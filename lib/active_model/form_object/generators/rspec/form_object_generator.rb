@@ -8,11 +8,27 @@ module Rspec
       source_root File.expand_path('../templates', __FILE__)
 
       def copy_shared_example
-        template "shared_example.rb",
-          File.join(support_dir_path, "form_object.rb")
+        case self.behavior
+        when :invoke
+          template 'shared_example.rb', shared_example_path if shared_example_not_created?
+        when :revoke
+          template 'shared_example.rb', shared_example_path if last_active_model_form_object?
+        end
       end
 
       private
+
+      def shared_example_path
+        File.join(support_dir_path, "form_object.rb")
+      end
+
+      def last_active_model_form_object?
+        Dir[File.join('app/form_objects', '**', '*')].count { |file| File.file?(file) } < 2
+      end
+
+      def shared_example_not_created?
+        !File.exist?(shared_example_path)
+      end
 
       def template_name
         'form_object_spec.rb'

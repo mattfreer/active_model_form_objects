@@ -131,7 +131,7 @@ With The `ActiveModel::FormObject::StrongParameters` module this can now be defi
   class UserRegister
     include ActiveModel::FormObject
 
-    strong_paramters :user => [:name, :email]
+    strong_parameters :user => [:name, :email]
   end
 
 ```
@@ -144,11 +144,11 @@ The default implementation assumes a `params` method on the FormObject which can
 
 ```
 
-If you wish to change the name of the params method to something else such as `my_params` then the `strong_paramters` method can be called with `:my_params` as an argument:
+If you wish to change the name of the params method to something else such as `my_params` then the `strong_parameters` method can be called with `:my_params` as an argument:
 
 ```ruby
 
-    strong_paramters, :my_params, :user => [:name, :email]
+    strong_parameters, :my_params, :user => [:name, :email]
 
 ```
 
@@ -171,7 +171,7 @@ The `strong_parameters` class method will record any unpermitted parameters that
 
     validates :user, :permitted_params => true
 
-    strong_paramters :user => [:name, :email]
+    strong_parameters :user => [:name, :email]
   end
 
 ```
